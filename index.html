@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Item Recovery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>🎒 Student Item Recovery</h1>
+    <p>Report and reclaim lost & found items on campus</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Report Lost / Found</h2>
+      <form id="itemForm">
+        <div class="grid">
+          <label>
+            <span>Your Name</span>
+            <input id="userName" type="text" required />
+          </label>
+          <label>
+            <span>Contact (email or phone)</span>
+            <input id="contact" type="text" required />
+          </label>
+          <label>
+            <span>Type</span>
+            <select id="type" required>
+              <option value="lost">Lost</option>
+              <option value="found">Found</option>
+            </select>
+          </label>
+          <label>
+            <span>Item Name</span>
+            <input id="itemName" type="text" placeholder="ID card, USB drive..." required />
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="category" required>
+              <option value="ID">ID</option>
+              <option value="Books">Books</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Others">Others</option>
+            </select>
+          </label>
+          <label>
+            <span>Location (lost/found)</span>
+            <input id="location" type="text" placeholder="Library, Block A, Canteen..." required />
+          </label>
+          <label>
+            <span>Date</span>
+            <input id="date" type="date" required />
+          </label>
+          <label class="full">
+            <span>Description</span>
+            <textarea id="description" rows="3" placeholder="Color, brand, unique marks..." required></textarea>
+          </label>
+          <label class="full">
+            <span>Image</span>
+            <input id="image" type="file" accept="image/*" />
+          </label>
+        </div>
+        <div class="actions">
+          <button type="submit">Post Item</button>
+          <button type="reset" class="secondary">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Search & Filters</h2>
+      <div class="filters grid">
+        <label>
+          <span>Category</span>
+          <select id="fCategory">
+            <option value="">Any</option>
+            <option value="ID">ID</option>
+            <option value="Books">Books</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Others">Others</option>
+          </select>
+        </label>
+        <label>
+          <span>Type</span>
+          <select id="fType">
+            <option value="">Any</option>
+            <option value="lost">Lost</option>
+            <option value="found">Found</option>
+          </select>
+        </label>
+        <label>
+          <span>Date</span>
+          <input id="fDate" type="date" />
+        </label>
+        <label>
+          <span>Location</span>
+          <input id="fLocation" type="text" placeholder="e.g. library" />
+        </label>
+        <label class="full">
+          <span>Text Search</span>
+          <input id="fQuery" type="text" placeholder="name, description..." />
+        </label>
+      </div>
+      <div class="actions">
+        <button id="applyFilters">Apply Filters</button>
+        <button id="clearFilters" class="secondary">Clear Filters</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="list-header">
+        <h2>Recent Posts</h2>
+        <button id="seedDemo" class="secondary small">Seed demo data</button>
+      </div>
+      <div id="itemList" class="items"></div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>© Student Item Recovery • Built for campuses</p>
+  </footer>
+
+  <!-- Optional Firebase SDKs (uncomment if using Firebase) -->
+  
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+ <!----> <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>-->
+
+  <script src="app.js"></script>
+</body>
+</html>
